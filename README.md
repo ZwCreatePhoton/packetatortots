@@ -1,9 +1,6 @@
 <div align="center">
  <h3>Packetatortots</h3>
-
-  <p>
-    Wrapper program for [_packetator_](https://github.com/ZwCreatePhoton/packetator)
-  </p>
+ Wrapper program for <a href="https://github.com/ZwCreatePhoton/packetator"><i>packetator</i></a>
 </div>
 
 
