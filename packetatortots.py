@@ -38,9 +38,9 @@ timeout = None
 packetator = None
 
 
-def search_directory(path, target):
+def search_for_file(path, target):
     for p, d, f in walk(path):
-        for x in (d + f):
+        for x in f:
             if x == target:
                 return join(p, x)
 
@@ -64,15 +64,15 @@ def locate_packetator():
         if install_dir is not None:
             potential_install_dirs = potential_install_dirs.insert(0, abspath(install_dir))
         for potential_install_dir in potential_install_dirs:
-            packetator_binary_path = search_directory(potential_install_dir, binary_name)
+            packetator_binary_path = search_for_file(potential_install_dir, binary_name)
             if packetator_binary_path is not None:
                 return potential_install_dir
         raise Exception("Count not locate packetator installation in any of the directories: {}"
                         .format(potential_install_dirs))
 
     install_dir = locate_packetator_install_directory()
-    binary_path = search_directory(install_dir, binary_name)
-    config_dir = dirname(search_directory(install_dir, config_name))
+    binary_path = search_for_file(install_dir, binary_name)
+    config_dir = dirname(search_for_file(install_dir, config_name))
     if config_dir is None:
         raise Exception("Count not locate the configs directory in the installation directory: {}"
                         .format(install_dir))

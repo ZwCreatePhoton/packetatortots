@@ -54,11 +54,12 @@ interfaces:
 #### Command:
 
 ```shell
-sudo ./packetatortots.py -od ~/output -i ~/interfaces.yaml /opt/packetator/share/doc/packetator/pcap/chunked_16_mal.pcap
+sudo ./packetatortots.py -d -od ~/output -i ~/interfaces.yaml /opt/packetator/share/doc/packetator/pcap/chunked_16_mal.pcap
 ```
 
 #### Explanation
 
+- `-d`: Run in debug mode. An additional file named `debug.txt` will be created in each run's output directory.
 - `-od`: `/tmp/output` will be used for any output files.
 - `-i`: Use the interface configuration specified in interfaces.yaml
 - `/opt/packetator/share/doc/packetator/pcap/chunked_16_mal.pcap`: Replay this pcap.
